@@ -1,0 +1,47 @@
+name: 06 - Matrix Browsers
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+    paths:
+      - '06-matrix-browsers/**'
+      - '.github/workflows/06-matrix-browsers.yml'
+
+jobs:
+  test:
+    name: Test on ${{ matrix.browser }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+    defaults:
+      run:
+        working-directory: ./06-matrix-browsers
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: '06-matrix-browsers/package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests on ${{ matrix.browser }}
+        run: npx playwright test --project=${{ matrix.browser }} --reporter=html
+
+      - name: Upload HTML report (${{ matrix.browser }})
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-06-${{ matrix.browser }}
+          path: 06-matrix-browsers/playwright-report/
+          retention-days: 7

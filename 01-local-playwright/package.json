@@ -1,0 +1,8 @@
+{
+    "name":  "01-local-playwright",
+    "version":  "1.0.0",
+    "description":  "Configuración local de Playwright",
+    "scripts":  {
+                    "test":  "playwright test"
+                }
+}

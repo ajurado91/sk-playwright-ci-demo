@@ -1,0 +1,8 @@
+{
+    "name":  "02-basic-ci",
+    "version":  "1.0.0",
+    "description":  "Playwright con CI básico",
+    "scripts":  {
+                    "test":  "playwright test"
+                }
+}

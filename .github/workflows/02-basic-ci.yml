@@ -1,0 +1,43 @@
+name: 02 - Basic CI
+
+on:
+  workflow_dispatch:  # Permite ejecución manual
+  push:
+    branches: [ main, master ]
+    paths:
+      - '02-basic-ci/**'
+      - '.github/workflows/02-basic-ci.yml'
+
+jobs:
+  test:
+    name: Basic CI Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./02-basic-ci
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test --reporter=html
+        continue-on-error: true
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-02-basic-ci
+          path: 02-basic-ci/playwright-report/
+          retention-days: 7

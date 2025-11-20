@@ -1,0 +1,14 @@
+{
+    "name": "playwright-gha-demo",
+    "version": "1.0.0",
+    "description": "Playwright + GitHub Actions Demo",
+    "scripts": {
+        "test": "playwright test",
+        "install:all": "npm install"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.40.0",
+        "typescript": "^5.0.0",
+        "@types/node": "^20.0.0"
+    }
+}
