@@ -1,8 +1,11 @@
 {
-    "name":  "03-with-cache",
-    "version":  "1.0.0",
-    "description":  "Playwright con CI optimizado con caché",
-    "scripts":  {
-                    "test":  "playwright test"
-                }
+    "name": "03-with-cache",
+    "version": "1.0.0",
+    "description": "Playwright con CI optimizado con caché",
+    "scripts": {
+        "test": "playwright test"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.40.0"
+    }
 }

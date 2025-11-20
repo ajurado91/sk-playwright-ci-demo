@@ -1,8 +1,11 @@
 {
-    "name":  "02-basic-ci",
-    "version":  "1.0.0",
-    "description":  "Playwright con CI básico",
-    "scripts":  {
-                    "test":  "playwright test"
-                }
+    "name": "02-basic-ci",
+    "version": "1.0.0",
+    "description": "Playwright con CI básico",
+    "scripts": {
+        "test": "playwright test"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.40.0"
+    }
 }

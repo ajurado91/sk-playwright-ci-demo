@@ -1,11 +1,14 @@
 {
-    "name":  "06-matrix-browsers",
-    "version":  "1.0.0",
-    "description":  "Playwright con matrix strategy - múltiples navegadores en paralelo",
-    "scripts":  {
-                    "test":  "playwright test",
-                    "test:chromium":  "playwright test --project=chromium",
-                    "test:firefox":  "playwright test --project=firefox",
-                    "test:webkit":  "playwright test --project=webkit"
-                }
+    "name": "06-matrix-browsers",
+    "version": "1.0.0",
+    "description": "Playwright con matrix strategy - múltiples navegadores en paralelo",
+    "scripts": {
+        "test": "playwright test",
+        "test:chromium": "playwright test --project=chromium",
+        "test:firefox": "playwright test --project=firefox",
+        "test:webkit": "playwright test --project=webkit"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.40.0"
+    }
 }

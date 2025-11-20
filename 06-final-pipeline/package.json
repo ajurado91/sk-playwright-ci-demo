@@ -1,8 +1,11 @@
 {
-    "name":  "05-final-pipeline",
-    "version":  "1.0.0",
-    "description":  "Pipeline completo con reportes y despliegue",
-    "scripts":  {
-                    "test":  "playwright test"
-                }
+    "name": "05-final-pipeline",
+    "version": "1.0.0",
+    "description": "Pipeline completo con reportes y despliegue",
+    "scripts": {
+        "test": "playwright test"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.40.0"
+    }
 }
