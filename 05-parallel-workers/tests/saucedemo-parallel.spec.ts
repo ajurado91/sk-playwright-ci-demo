@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('SauceDemo E-commerce Flow - Parallel Tests', () => {
 
     test('Test 1: Login and verify products page', async ({ page }) => {
-        await page.goto('https://www.saucedemo.com/');
+        await page.goto('/');
         await page.fill('[data-test="username"]', 'standard_user');
         await page.fill('[data-test="password"]', 'secret_sauce');
         await page.click('[data-test="login-button"]');
@@ -13,7 +13,7 @@ test.describe('SauceDemo E-commerce Flow - Parallel Tests', () => {
     });
 
     test('Test 2: Add items to cart', async ({ page }) => {
-        await page.goto('https://www.saucedemo.com/');
+        await page.goto('/');
         await page.fill('[data-test="username"]', 'standard_user');
         await page.fill('[data-test="password"]', 'secret_sauce');
         await page.click('[data-test="login-button"]');
@@ -25,7 +25,7 @@ test.describe('SauceDemo E-commerce Flow - Parallel Tests', () => {
     });
 
     test('Test 3: View cart', async ({ page }) => {
-        await page.goto('https://www.saucedemo.com/');
+        await page.goto('/');
         await page.fill('[data-test="username"]', 'standard_user');
         await page.fill('[data-test="password"]', 'secret_sauce');
         await page.click('[data-test="login-button"]');
@@ -38,7 +38,7 @@ test.describe('SauceDemo E-commerce Flow - Parallel Tests', () => {
     });
 
     test('Test 4: Complete checkout flow', async ({ page }) => {
-        await page.goto('https://www.saucedemo.com/');
+        await page.goto('/');
         await page.fill('[data-test="username"]', 'standard_user');
         await page.fill('[data-test="password"]', 'secret_sauce');
         await page.click('[data-test="login-button"]');
@@ -59,7 +59,7 @@ test.describe('SauceDemo E-commerce Flow - Parallel Tests', () => {
     });
 
     test('Test 5: Locked out user error', async ({ page }) => {
-        await page.goto('https://www.saucedemo.com/');
+        await page.goto('/');
         await page.fill('[data-test="username"]', 'locked_out_user');
         await page.fill('[data-test="password"]', 'secret_sauce');
         await page.click('[data-test="login-button"]');
@@ -68,7 +68,7 @@ test.describe('SauceDemo E-commerce Flow - Parallel Tests', () => {
     });
 
     test('Test 6: Remove item from cart', async ({ page }) => {
-        await page.goto('https://www.saucedemo.com/');
+        await page.goto('/');
         await page.fill('[data-test="username"]', 'standard_user');
         await page.fill('[data-test="password"]', 'secret_sauce');
         await page.click('[data-test="login-button"]');

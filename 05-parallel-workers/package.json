@@ -1,11 +1,13 @@
 {
-    "name": "07-parallel-workers",
+    "name": "05-parallel-workers",
     "version": "1.0.0",
     "description": "Playwright parallel workers demo",
     "scripts": {
-        "test": "playwright test",
-        "test:sequential": "playwright test --workers=1",
-        "test:parallel": "playwright test --workers=4"
+        "test": "npx playwright test",
+        "test:ui": "npx playwright test --ui",
+        "test:report": "npx playwright show-report",
+        "test:sequential": "npx playwright test --workers=1",
+        "test:parallel": "npx playwright test --workers=4"
     },
     "devDependencies": {
         "@playwright/test": "^1.40.0"

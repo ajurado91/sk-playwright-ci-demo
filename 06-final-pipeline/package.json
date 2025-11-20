@@ -1,9 +1,11 @@
 {
-    "name": "05-final-pipeline",
+    "name": "06-final-pipeline",
     "version": "1.0.0",
     "description": "Complete pipeline with reports and deployment",
     "scripts": {
-        "test": "playwright test"
+        "test": "npx playwright test",
+        "test:ui": "npx playwright test --ui",
+        "test:report": "npx playwright show-report"
     },
     "devDependencies": {
         "@playwright/test": "^1.40.0"

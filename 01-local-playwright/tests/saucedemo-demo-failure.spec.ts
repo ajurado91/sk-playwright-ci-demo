@@ -1,15 +1,14 @@
 import { test, expect } from '@playwright/test';
 
-// Este test está diseñado para FALLAR intencionalmente
-// Úsalo durante la demo para mostrar cómo funcionan los retries y traces en UI testing
+// This test is designed to FAIL intentionally
 
-test.describe('SauceDemo - Demo de Trace Viewer', () => {
+test.describe('SauceDemo - Trace Viewer Demo', () => {
 
     test.beforeEach(async ({ page }) => {
-        await page.goto('https://www.saucedemo.com/');
+        await page.goto('/');
     });
 
-    test('Demo: Fallo intencional en checkout', async ({ page }) => {
+    test('Demo: Intentional failure in checkout', async ({ page }) => {
         // 1. Login
         await page.fill('[data-test="username"]', 'standard_user');
         await page.fill('[data-test="password"]', 'secret_sauce');
@@ -40,48 +39,15 @@ test.describe('SauceDemo - Demo de Trace Viewer', () => {
 
         // 6. Verify Overview
         await expect(page.locator('.summary_total_label')).toBeVisible();
+        await expect(page.locator('.complete-header')).toHaveText('Incorrect Text');
 
-        // ❌ Este expect FALLARÁ intencionalmente
-        await expect(page.locator('.complete-header')).toHaveText('TEXTO_INCORRECTO');
-
-        // Playwright automáticamente:
-        // 1. Reintentará el test (retries: 1)
-        // 2. Generará un trace en el reintento con:
-        //    - Screenshots de cada paso
-        //    - Video de la ejecución
-        //    - DOM snapshots
-        //    - Network requests
-        //    - Console logs
-        //    - Timeline visual de acciones
     });
 
-    test('Demo: Fallo intencional en login', async ({ page }) => {
+    test('Demo: Intentional failure in login', async ({ page }) => {
         await page.fill('[data-test="username"]', 'standard_user');
         await page.fill('[data-test="password"]', 'secret_sauce');
         await page.click('[data-test="login-button"]');
+        await expect(page.locator('.title')).toHaveText('Incorrect Title');
 
-        // ❌ Este expect FALLARÁ intencionalmente
-        await expect(page.locator('.title')).toHaveText('TITULO_INCORRECTO');
-
-        // El trace mostrará:
-        // - Screenshot del momento del fallo
-        // - El selector que estaba buscando
-        // - El texto real vs el esperado
-        // - El estado del DOM en ese momento
     });
 });
-
-// 🎤 Para la demo en vivo:
-// 1. Este archivo ya está activo (sin .skip())
-// 2. El workflow de GitHub Actions ejecutará estos tests
-// 3. Los tests fallarán pero el workflow continuará (continue-on-error: true)
-// 4. Descarga los artifacts desde GitHub Actions
-// 5. Abre el reporte: npx playwright show-report
-// 6. Haz clic en el test fallido
-// 7. Muestra el Trace Viewer con:
-//    - Video de la ejecución completa
-//    - Screenshots en cada paso
-//    - Timeline interactivo
-//    - DOM explorer
-//    - Network tab
-//    - Console logs

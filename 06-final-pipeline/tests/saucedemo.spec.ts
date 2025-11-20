@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('SauceDemo E-commerce Flow', () => {
   
   test.beforeEach(async ({ page }) => {
-    await page.goto('https://www.saucedemo.com/');
+    await page.goto('/');
   });
 
   test('should complete a purchase flow', async ({ page }) => {

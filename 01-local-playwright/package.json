@@ -1,8 +1,11 @@
 {
     "name":  "01-local-playwright",
     "version":  "1.0.0",
-    "description":  "Configuración local de Playwright",
-    "scripts":  {
-                    "test":  "playwright test"
-                }
+    "description": "Local Playwright configuration",
+    "scripts": {
+        "test": "npx playwright test",
+        "test:ui": "npx playwright test --ui",
+        "test:report": "npx playwright show-report",
+        "test:artifacts": "npx playwright test --trace=on"
+    }
 }

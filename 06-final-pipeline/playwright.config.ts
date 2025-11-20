@@ -8,10 +8,10 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'https://playwright.dev',
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    baseURL: 'https://www.saucedemo.com',
+    trace: 'on',
+    screenshot: 'on',
+    video: 'on',
   },
   projects: [
     {
