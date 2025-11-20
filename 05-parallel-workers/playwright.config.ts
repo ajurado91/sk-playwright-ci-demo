@@ -5,7 +5,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  workers: process.env.CI ? 2 : 4,  // 2 workers en CI, 4 localmente
+  workers: process.env.CI ? 2 : 4,
   reporter: 'html',
   use: {
     baseURL: 'https://playwright.dev',

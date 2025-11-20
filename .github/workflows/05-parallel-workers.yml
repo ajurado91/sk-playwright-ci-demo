@@ -39,4 +39,4 @@ jobs:
         with:
           name: playwright-report-05-parallel-workers
           path: 05-parallel-workers/playwright-report/
-          retention-days: 7
+          retention-days: 3

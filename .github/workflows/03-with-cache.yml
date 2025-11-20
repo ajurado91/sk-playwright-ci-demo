@@ -51,4 +51,4 @@ jobs:
         with:
           name: playwright-report-03-with-cache
           path: 03-with-cache/playwright-report/
-          retention-days: 7
+          retention-days: 3

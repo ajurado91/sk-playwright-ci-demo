@@ -1,7 +1,7 @@
 {
     "name": "07-parallel-workers",
     "version": "1.0.0",
-    "description": "Demostración de workers paralelos en Playwright",
+    "description": "Playwright parallel workers demo",
     "scripts": {
         "test": "playwright test",
         "test:sequential": "playwright test --workers=1",

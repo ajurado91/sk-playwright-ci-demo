@@ -1,7 +1,7 @@
 name: 02 - Basic CI
 
 on:
-  workflow_dispatch:  # Permite ejecución manual
+  workflow_dispatch:
   push:
     branches: [ main, master ]
     paths:
@@ -40,4 +40,4 @@ jobs:
         with:
           name: playwright-report-02-basic-ci
           path: 02-basic-ci/playwright-report/
-          retention-days: 7
+          retention-days: 3

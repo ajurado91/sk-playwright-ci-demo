@@ -42,4 +42,4 @@ jobs:
         with:
           name: playwright-report-04-${{ matrix.browser }}
           path: 04-matrix-browsers/playwright-report/
-          retention-days: 7
+          retention-days: 3

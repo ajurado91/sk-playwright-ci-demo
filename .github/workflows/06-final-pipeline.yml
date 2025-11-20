@@ -36,7 +36,7 @@ jobs:
         with:
           name: playwright-report-06-final
           path: 06-final-pipeline/playwright-report/
-          retention-days: 30
+          retention-days: 3
 
       - name: Upload report for GitHub Pages
         if: always()
