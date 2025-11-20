@@ -1,28 +1,30 @@
-name: 05 - Final Pipeline with GitHub Pages
+name: 06 - Final Pipeline with GitHub Pages
 
 on:
   workflow_dispatch:
   push:
     branches: [ main, master ]
     paths:
-      - '05-final-pipeline/**'
-      - '.github/workflows/05-final-pipeline.yml'
+      - '06-final-pipeline/**'
+      - '.github/workflows/06-final-pipeline.yml'
 
 jobs:
   test:
     name: Final Pipeline Tests
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.40.0-jammy
+
     defaults:
       run:
-        working-directory: ./05-final-pipeline
+        working-directory: ./06-final-pipeline
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
 
       - name: Run Playwright tests with HTML report
         run: npx playwright test --reporter=html
@@ -32,15 +34,15 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report-05-final
-          path: 05-final-pipeline/playwright-report/
+          name: playwright-report-06-final
+          path: 06-final-pipeline/playwright-report/
           retention-days: 30
 
       - name: Upload report for GitHub Pages
         if: always()
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 05-final-pipeline/playwright-report/
+          path: 06-final-pipeline/playwright-report/
 
   deploy:
     name: Deploy to GitHub Pages

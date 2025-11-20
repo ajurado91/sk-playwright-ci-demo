@@ -1,12 +1,12 @@
-name: 07 - Parallel Workers
+name: 05 - Parallel Workers
 
 on:
   workflow_dispatch:
   push:
     branches: [ main, master ]
     paths:
-      - '07-parallel-workers/**'
-      - '.github/workflows/07-parallel-workers.yml'
+      - '05-parallel-workers/**'
+      - '.github/workflows/05-parallel-workers.yml'
 
 jobs:
   test:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./07-parallel-workers
+        working-directory: ./05-parallel-workers
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,11 +23,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-          cache: 'npm'
-          cache-dependency-path: '07-parallel-workers/package-lock.json'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
@@ -39,6 +37,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report-07-parallel-workers
-          path: 07-parallel-workers/playwright-report/
+          name: playwright-report-05-parallel-workers
+          path: 05-parallel-workers/playwright-report/
           retention-days: 7
